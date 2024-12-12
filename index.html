@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Facts Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(27, 0, 54);
+            background-image: url('path/to/stars-background.jpg'); /* Replace with your stars background image */
+            background-size: cover;
+            color: rgb(255, 255, 255);
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .fact-container {
+            background-color: rgba(104, 114, 140, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #fact-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .planet {
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .planet:hover {
+            transform: scale(1.1);
+        }
+
+    /* Example positions and images for planets */
+        .planet.mercury {
+            background-image: url('path/to/mercury.jpg'); /* Replace with your Mercury image */
+            top: 150%;
+            left: 20%;
+        }
+
+        .planet.venus {
+            background-image: url('path/to/venus.jpg'); /* Replace with your Venus image */
+            top: 170%;
+            left: 60%;
+        }
+
+        .planet.earth {
+            background-image: url('path/to/earth.jpg'); /* Replace with your Earth image */
+            top: 190%;
+            left: 90%;
+        }
+
+        .planet.mars {
+            background-image: url('path/to/mars.jpg'); /* Replace with your Mars image */
+            top: 250%;
+            left: 70%;
+        }
+
+        .planet.jupiter {
+            background-image: url('path/to/jupiter.jpg'); /* Replace with your Jupiter image */
+            top: 200%;
+            left: 1%;
+        }
+
+        .planet.saturn {
+            background-image: url('path/to/saturn.jpg'); /* Replace with your Saturn image */
+            top: 280%;
+            left: 95%;
+        }
+
+        .planet.uranus {
+            background-image: url('path/to/uranus.jpg'); /* Replace with your Uranus image */
+            top: 300%;
+            left: 10%;
+        }
+
+        .planet.neptune {
+            background-image: url('path/to/neptune.jpg'); /* Replace with your Neptune image */
+            top: 310%;
+            left: 50%;
+        }
+
+        .planet.pluto {
+            background-image: url('path/to/pluto.jpg'); /* Replace with your Pluto image */
+            top: 220%;
+            left: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Space Facts Viewer</h1>
+        <div class="fact-container">
+            <p id="fact-text">Click a planet to see a fact about it!</p>
+        </div>
+        <div class="planet mercury" data-facts='["Mercury is the closest planet to the Sun.", "A year on Mercury is just 88 Earth days long.", "Mercury has no atmosphere to retain heat.", "Mercury is the smallest planet in our solar system.", "Mercury has a large iron core."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">MERCURY</div>
+        <div class="planet venus" data-facts='["Venus is the hottest planet in our solar system.", "A day on Venus is longer than a year on Venus.", "Venus has a thick, toxic atmosphere.", "Venus rotates in the opposite direction to most planets.", "Venus is often called Earth’s twin."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">VENUS</div>
+        <div class="planet earth" data-facts='["Earth is the only planet known to support life.", "Earth has a powerful magnetic field.", "70% of Earth’s surface is covered in water.", "Earth is the densest planet in the solar system.", "Earth has one moon."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">EARTH</div>
+        <div class="planet mars" data-facts='["Mars is known as the Red Planet.", "Mars has the tallest volcano in the solar system.", "Mars has two moons: Phobos and Deimos.", "Mars has seasons like Earth.", "Mars is home to the largest dust storms in the solar system."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">MARS</div>
+        <div class="planet jupiter" data-facts='["Jupiter is the largest planet in our solar system.", "Jupiter has a Great Red Spot, a giant storm.", "Jupiter has at least 79 moons.", "Jupiter has a very strong magnetic field.", "Jupiter is mostly made of hydrogen and helium."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">JUPITER</div>
+        <div class="planet saturn" data-facts='["Saturn is known for its rings.", "Saturn has 82 moons.", "Saturn is mostly made of hydrogen and helium.", "Saturn’s rings are made of ice and rock.", "Saturn is the least dense planet in the solar system."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">SATURN</div>
+        <div class="planet uranus" data-facts='["Uranus rotates on its side.", "Uranus has 27 known moons.", "Uranus is known as an ice giant.", "Uranus has a faint ring system.", "Uranus is the coldest planet in the solar system."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">URANUS</div>
+        <div class="planet neptune" data-facts='["Neptune is the farthest planet from the Sun.", "Neptune has 14 known moons.", "Neptune has a Great Dark Spot, a storm similar to Jupiter’s.", "Neptune has a very active climate.", "Neptune is known for its deep blue color."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">NEPTUNE</div>
+        <div class="planet pluto" data-facts='["Pluto is a dwarf planet.", "Pluto has five known moons.", "Pluto is made of ice and rock.", "Pluto has a heart-shaped glacier.", "Pluto was reclassified from a planet to a dwarf planet in 2006."]' style="font-family: 'Orbitron', sans-serif; font-size: 30px; color: #ffffff; text-shadow: 2px 2px 4px #000000;">PLUTO</div>
+    </div>
+
+    <script>
+        const planets = document.querySelectorAll('.planet');
+        const factText = document.getElementById('fact-text');
+
+        planets.forEach(planet => {
+            planet.addEventListener('click', () => {
+                const facts = JSON.parse(planet.getAttribute('data-facts'));
+                const randomFact = facts[Math.floor(Math.random() * facts.length)];
+                factText.textContent = randomFact;
+            });
+        });
+    </script>
+</body>
+</html>
